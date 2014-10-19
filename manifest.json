@@ -3,7 +3,8 @@
     "name": "Postrack",
     "version": "0.0.1",
     "short_name": "postrack",
-    "description": "Postal tracker for all your tracking codes and multiple postal services in one place."
+    "description": "Postal tracker for all your tracking codes and multiple postal services in one place.",
+    "update_url": "https://clients2.google.com/service/update2/crx",
     "icons": {
         "128": "icon/128.png",
         "16": "icon/16.png",
