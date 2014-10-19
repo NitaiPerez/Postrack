@@ -4,6 +4,11 @@
     "version": "0.0.1",
     "short_name": "postrack",
     "description": "Postal tracker for all your tracking codes and multiple postal services in one place."
+    "icons": {
+        "128": "icon/128.png",
+        "16": "icon/16.png",
+        "48": "icon/48.png"
+    },
 
     "permissions": [ "storage", "http://*/*", "https://*/*" ],
     "optional_permissions": [ "notifications" ],
