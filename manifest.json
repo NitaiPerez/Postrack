@@ -4,4 +4,17 @@
     "version": "0.0.1",
     "short_name": "postrack",
     "description": "Postal tracker for all your tracking codes and multiple postal services in one place."
+
+    "permissions": [ "storage", "http://*/*", "https://*/*" ],
+    "optional_permissions": [ "notifications" ],
+
+    "background": {
+        "persistent": true,
+        "scripts": [
+            "/lib/async.js",
+            "/lib/lodash.js",
+            "/lib/jquery-2.1.1.min.js",
+            "background.js"
+        ]
+    }
 }
