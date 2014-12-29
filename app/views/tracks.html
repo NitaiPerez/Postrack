@@ -1,0 +1,30 @@
+<div class=all-overrides ng-init="init()" ng-model="tab">
+    <div class=header><h1>My Postracks</h1>
+        <a class="btn add" href="#/edit"></a>
+        <a class="btn about" href="#/about"></a>
+        <!-- a class="btn popout" ng-if="!fullmode" ng-click="popout()"></a -->
+    </div>
+    <table cellspacing=0 cellpadding=0>
+        <thead>
+        <tr>
+            <td>Track Name</td>
+            <td>Track Info</td>
+            <td>Last Status</td>
+            <td width=40>&nbsp;</td>
+            <td width=40>&nbsp;</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="(id, track) in tracks track by $index">
+            <td>{{track.name}}</td>
+            <td class=secondary>{{ track.type }}<br/>{{id}}<br/>Updated {{ track.updated | timeToMoment }}</td>
+            <td>{{track.lastStatus}}</td>
+            <td class=secondary><span class="btn courier" ng-style="{'background-image': 'url(/app/adapters/img/{{track.lastCourier}}Adapter.png)'}"></span></td>
+            <td><a class="btn trash" ng-click="removeTrack(id)"></a></td>
+        </tr>
+        <tr>
+            <td colspan=7 class=add><a ng-href=#/edit><img src="img/plus-dark.svg">Add a new post item</a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>

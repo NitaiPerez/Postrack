@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<form class=edit-override ng-init=init() ng-submit=saveHandler()>
+    <div class=header><a class="btn list" href=#></a>
+
+        <h1>Edit Override</h1><a class="btn remove" ng-click=removeOverride()></a> <input type=submit class="btn save"
+                                                                                          ng-class={highlight:changesMade}
+                                                                                          value=&nbsp;> <a
+                class="btn popout" ng-if=!fullmode ng-click=popout()></a></div>
+    <div class=menu>
+        <div ng-repeat="item in tabsMenu" class="item {{item.id}}" ng-click="$parent.tab = item.id"
+             ng-class="{selected:item.id == $parent.tab}">{{item.title}}
+        </div>
+    </div>
+    <div class="tab settings" ng-class="{selected:tab==\'settings\'}"><label for=title>Title</label><input id=title
+                                                                                                           type=text
+                                                                                                           ng-model=data.title
+                                                                                                           placeholder="Give a name for your override"><label
+            for=urlQuery>URL RegExp <a ng-if=!fullmode ng-click=resetURL() title="Reset to current tab url"><img
+            src=img/cw.svg height=14></a></label>
+
+        <div id=urlQuery class=urlQuery ng-repeat="i in data.urlQuery track by $index"><a class=remove-input-row
+                                                                                          ng-click="remove(data.urlQuery, $index)">
+            &nbsp;</a> <input type=text ng-model=data.urlQuery[$index]
+                              placeholder="URL RegExp for the override to work on"></div>
+        <button class=add-url ng-click="data.urlQuery.push(\'\')">Add URL Query</button>
+        <br><input id=active type=checkbox ng-model=data.active ng-checked=data.active><label for=active>Override
+            Active</label><br><input id=public type=checkbox ng-model=data.public ng-checked=data.public><label
+                for=public>Available Public</label></div>
+    <div class=tab ng-class="{selected:tab==\'html\'}">
+        <div class=code-input>
+            <pre id=html-editor class=ace-editor>{{data.htmlContent}}</pre>
+        </div>
+    </div>
+    <div class=tab ng-class="{selected:tab==\'css\'}">
+        <div class=code-input>
+            <pre id=css-editor class=ace-editor>{{data.cssContent}}</pre>
+        </div>
+    </div>
+    <div class=tab ng-class="{selected:tab==\'js\'}">
+        <div class=code-input>
+            <pre id=js-editor class=ace-editor>{{data.jsContent}}</pre>
+        </div>
+    </div>
+</form>
+</body>
+</html>

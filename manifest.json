@@ -20,6 +20,7 @@
             "/lib/async.js",
             "/lib/lodash.js",
             "/lib/jquery-2.1.1.min.js",
+            "/lib/moment.min.js",
             "background.js"
         ]
     },
@@ -28,5 +29,24 @@
         "default_icon": "icon/64.png",
         "default_popup": "app/popup.html",
         "default_title": "Track postal items"
-    }
+    },
+
+    "content_scripts": [
+        {
+            "js": [
+                "lib/async.js",
+                "lib/lodash.js",
+                "lib/jquery-2.1.1.min.js",
+                "content_script.js"
+            ],
+            "matches": [ "http://*/*", "https://*/*" ],
+            "run_at": "document_end"
+        }
+    ],
+
+    "web_accessible_resources": [
+        "app/adapters/img/*.png"
+    ],
+
+    "content_security_policy": "script-src 'self' 'unsafe-eval' https://*.google-analytics.com; object-src 'self' "
 }
